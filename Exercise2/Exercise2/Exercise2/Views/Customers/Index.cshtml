@@ -1,0 +1,32 @@
+﻿@model IEnumerable<Exercise2.Models.Customer>
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers</h2>
+
+@if (!Model.Any())
+{
+    <p>We Don't have any customers yet</p>
+}
+else
+{
+    <table>
+        <thead>
+            <tr>
+                <th>Customer</th>
+            </tr>
+        </thead>
+        <tbody >
+            @foreach (var customer in Model)
+            {
+            <tr>
+                @*<td> @Html.ActionLink(customer.Name, "Details", "Customers", new { customer.Id }, null)</td>*@
+                <td> <a href="Details/@customer.Id"> @customer.Name</a>  </td>
+
+            </tr>
+            }
+        </tbody>
+    </table>
+}
